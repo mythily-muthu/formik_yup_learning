@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-lg-12 ">
           <Formik
             initialValues={initialValues}
             validationSchema={loginSchema}
@@ -26,7 +26,7 @@ function App() {
               alert("Form is validated! Submitting the form...");
             }}
           >
-            {({ touched, errors, values }) => {
+            {({ touched, errors }) => {
               return <div>
                 <div className="row mb-5">
                   <div className="col-lg-12 text-center">
@@ -40,8 +40,8 @@ function App() {
 
                       type="email"
                       name="email"
-                      className={`mt-2 form-control ${touched.email
-                        && errors.email ? "is-invalid" : ""}`}
+                      className={`mt-2 form-control ${(touched.email
+                        && errors.email) && "is-invalid"}`}
                     />
                     <ErrorMessage name='email' />
                   </div>
